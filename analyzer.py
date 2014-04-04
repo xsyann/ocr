@@ -5,7 +5,7 @@
 ## Contact  <contact@xsyann.com>
 ## 
 ## Started on  Wed Apr  2 14:52:28 2014 xsyann
-## Last update Wed Apr  2 15:11:57 2014 xsyann
+## Last update Fri Apr  4 19:01:25 2014 xsyann
 ##
 
 """
@@ -28,6 +28,12 @@ class Analyzer(object):
         self.__trainRatio = trainRatio
         self.__start = 0
         self.__elapsed = 0
+        self.trainMedian = 0
+        self.trainMean = 0
+        self.trainMAD = 0
+        self.trainVar = 0
+        self.trainStd = 0
+        self.trainVarCoeff = 0
 
     def start(self):
         self.__start = timeit.default_timer()
@@ -102,14 +108,14 @@ class Analyzer(object):
     def __analyzeTrainingSamples(self, trainingSamples):
         """Analyze training samples distribution.
         """
-        self.trainMedian = np.median(trainingSamples)
-        self.trainMean = np.mean(trainingSamples)
-        self.trainMAD = np.median(np.absolute(trainingSamples - self.trainMedian))
-        self.trainVar = np.var(trainingSamples)
-        self.trainStd = np.std(trainingSamples)
-        self.trainVarCoeff = 0
-        if np.mean(trainingSamples) > 0:
-            self.trainVarCoeff = (np.var(trainingSamples) / np.mean(trainingSamples) * 100)
+        if trainingSamples:
+            self.trainMedian = np.median(trainingSamples)
+            self.trainMean = np.mean(trainingSamples)
+            self.trainMAD = np.median(np.absolute(trainingSamples - self.trainMedian))
+            self.trainVar = np.var(trainingSamples)
+            self.trainStd = np.std(trainingSamples)
+            if np.mean(trainingSamples) > 0:
+                self.trainVarCoeff = (np.var(trainingSamples) / np.mean(trainingSamples) * 100)
 
     def __analyzePredict(self, samples, responses):
         """Analyze the rate of true predictions.
