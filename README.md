@@ -117,7 +117,7 @@ Otherwise execute generator.creator.
 
 If filenames are provided, recognize chars in filenames.
 
-If pattern is provided, analyze the predictions.
+If `PATTERN` is provided, analyze the predictions.
    
 `PATTERN` must be a command that extract the classification from the filename.
       
