@@ -3,6 +3,13 @@
 
 Python OCR using OpenCV
 
+### Install
+
+    git clone https://github.com/xsyann/ocr.git
+    cd ocr
+    tar -xvjf dataset.tbz
+    
+
 ### Commands:
 
 
