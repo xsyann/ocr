@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
 ## creator.py for OCR
-## 
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
 ## Last update Thu Apr  3 20:44:34 2014 xsyann
 ##

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
 ## test.py for OCR
-## 
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
 ## Last update Fri Apr  4 16:36:43 2014 xsyann
 ##
@@ -99,8 +99,8 @@ class TestOCR:
                 self.brush.brushSize += 1
             elif k == self.KEY_DOWN:
                 self.brush.brushSize -= 1
-        
-        
+
+
 if __name__ == "__main__":
     import argparse, sys
 
@@ -122,8 +122,8 @@ if __name__ == "__main__":
     if not flags:
         parser.print_help()
         sys.exit(1)
-        
-    try:    
+
+    try:
         test = TestOCR(common.generateModelFilename(args, OCR.MODEL_ANN), args.filename, flags, args.pattern)
     except (OSError, cv2.error) as err:
         print err

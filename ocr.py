@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 ##
-## ocr.py for OCR
-## 
+## ocr.py
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
-## Last update Thu Apr  3 19:44:39 2014 xsyann
+## Last update Fri Apr  4 21:34:32 2014 xsyann
 ##
 
 """
@@ -31,7 +31,7 @@ class OCR(object):
 
     MODEL_ANN = 0
     MODEL_KNEAREST = 1
-    LETTERS = 1 
+    LETTERS = 1
     DIGITS = 2
     SYMBOLS = 4
 
@@ -69,7 +69,7 @@ class OCR(object):
         samples = self.__dataset.samples
         responses = self.__dataset.responses
         if verbose:
-            analyzer = Analyzer(self.__model, self.__dataset, trainRatio) 
+            analyzer = Analyzer(self.__model, self.__dataset, trainRatio)
             analyzer.start()
         if trainCount > 0:
             self.__model.train(samples[:trainCount], responses[:trainCount])
@@ -98,7 +98,7 @@ class OCR(object):
         small = "_small"
         num = "num_"
         sym = "sym_"
-        
+
         symbols = {'&': 'amper', '\'': 'apos', '@': 'arob', '`': 'bquote',
                    '\\': 'bslash', '^': 'caret', ':': 'colon', ',': 'comma',
                    '$': 'dollar', '=': 'equal', '!': 'exclmark', '>': 'gthan',
@@ -108,24 +108,24 @@ class OCR(object):
                    '"': 'quotmark', '}': 'rcbracket', ')': 'rparen',
                    ']': 'rsqbracket', ';': 'scolon', '/': 'slash', '*': 'star',
                    '~': 'tilde', '_': 'under', ' ': 'space' }
-        
+
         folderList = {}
-        
+
         if flags & OCR.LETTERS:
             for letter in list(string.ascii_lowercase):
                 folderList[letter.upper()] = os.path.join(folder, letter)
                 folderList[letter] = os.path.join(folder, letter + small)
-                
+
         if flags & OCR.DIGITS:
             for digit in list(string.digits):
                 folderList[digit] = os.path.join(folder, num + digit)
-                
+
         if flags & OCR.SYMBOLS:
             for symbol in list(string.punctuation + ' '):
                 if symbol in symbols:
                     folderList[symbol] = os.path.join(folder, sym + symbols[symbol])
         return folderList
-    
+
 def restricted_float(x):
     fx = float(x)
     if fx < 0.0 or fx > 1.0:
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     parser.add_argument('-s', dest='symbols', action='store_true', help='Train to recognize symbols')
     parser.add_argument('-d', dest='digits', action='store_true', help='Train to recognize digits')
     parser.add_argument("-t", "--train-ratio", type=restricted_float, default=.5)
-    parser.add_argument("-m", "--max-per-class", type=check_negative, default=50)
+    parser.add_argument("-m", "--max-per-class", type=check_negative, default=400)
     args = parser.parse_args()
 
     flags = 0

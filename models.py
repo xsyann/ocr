@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
-## ocr.py for OCR
-## 
+## ocr.py
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
 ## Last update Thu Apr  3 21:00:57 2014 xsyann
 ##
@@ -32,7 +32,7 @@ class AbstractStatModel(object):
         if not os.path.isfile(filename):
             raise OSError(2, 'File not found', filename)
         self._model.load(filename)
-    
+
     def save(self, filename):
         self._model.save(filename)
 
@@ -70,12 +70,12 @@ class ANN(AbstractStatModel):
             'bp_dw_scale': 0.1, # Stength of the weight gradient term
             'bp_moment_scale': 0.1 # Strength of the momentum term
             }
-        
+
         self._model.train(inputs=samples,
                   outputs=np.float32(newResponses),
                   sampleWeights=None,
                   params=params)
-        
+
     def predict(self, samples):
         retval, outputs = self._model.predict(samples)
         return outputs.argmax(-1)
@@ -91,5 +91,3 @@ class KNearest(AbstractStatModel):
     def predict(self, samples):
         retval, results, neighborResponses, dists = self._model.find_nearest(samples, k=10)
         return results.ravel()
-    
-

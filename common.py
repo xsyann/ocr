@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
-## common.py for OCR
-## 
+## common.py
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
 ## Last update Thu Apr  3 20:59:18 2014 xsyann
 ##
@@ -47,7 +47,7 @@ class Brush(object):
 
     def __init__(self, windowName):
         h, w = self.WINDOW_SIZE, self.WINDOW_SIZE
-        self.__img = np.zeros((h, w, 3), np.uint8) 
+        self.__img = np.zeros((h, w, 3), np.uint8)
         self.__img[:,:] = (255, 255, 255)
         self.__brushSize = 15
         self.windowName = windowName
@@ -88,7 +88,7 @@ class Sketcher:
         cv2.imshow(self.__windowName, self.__dest)
 
     def reset(self):
-        self.__dest[:,:] = (255, 255, 255) 
+        self.__dest[:,:] = (255, 255, 255)
 
     def onMouse(self, event, x, y, flags, param):
         pt = (x, y)

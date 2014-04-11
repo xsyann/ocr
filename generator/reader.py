@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
 ## reader.py for OCR
-## 
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
 ## Last update Thu Apr  3 20:51:41 2014 xsyann
 ##
@@ -34,7 +34,7 @@ import common
 from cv2 import cv
 
 class DatasetReader:
-    
+
     TEMPLATE = "template.bmp"
     CLASS_COUNT = 95
     MARGIN = 5
@@ -44,7 +44,7 @@ class DatasetReader:
     KEY_ESC = 27
     KEY_UP = 0
     KEY_DOWN = 1
-    
+
     def __init__(self, filename, dryRun):
 
         if not os.path.isfile(filename):
@@ -132,7 +132,7 @@ class DatasetReader:
             else:
                 print "Preview " + path
 
-        
+
 
 if __name__ == "__main__":
     import argparse, sys

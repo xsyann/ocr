@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
-## ocr.py for OCR
-## 
+## ocr.py
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Fri Mar 28 15:09:44 2014 xsyann
 ## Last update Thu Apr  3 21:02:45 2014 xsyann
 ##
@@ -25,11 +25,11 @@ import cv2
 
 class Dataset(object):
     """Dataset of image files.
-    Generate samples and responses arrays from images. 
+    Generate samples and responses arrays from images.
     """
 
     def __init__(self, folder, maxPerClass=170):
-        """Init the dataset from a folder dict of form 
+        """Init the dataset from a folder dict of form
         {'label1': 'path/item1', 'label2': 'path/label2', ...}
         """
         self.samples = None
@@ -203,7 +203,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     print __doc__
-        
+
     cv2.imshow("Input", item.input)
     cv2.imshow("Pre-processed", item.preprocessed)
     cv2.moveWindow("Input", 200, 0)

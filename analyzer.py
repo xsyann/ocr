@@ -1,9 +1,9 @@
 ##
-## analyzer.py for OCR
-## 
+## analyzer.py
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Wed Apr  2 14:52:28 2014 xsyann
 ## Last update Fri Apr  4 19:01:25 2014 xsyann
 ##
@@ -37,7 +37,7 @@ class Analyzer(object):
 
     def start(self):
         self.__start = timeit.default_timer()
-    
+
     def stop(self):
         self.__elapsed = timeit.default_timer() - self.__start
 
@@ -56,7 +56,7 @@ class Analyzer(object):
         res += ' ------------------\n'
         res += "  Mean : %d\n" % self.trainMean
         res += "  Median : %d\n" % self.trainMedian
-        res += "  Median absolute deviation : %.2f\n" % self.trainMAD 
+        res += "  Median absolute deviation : %.2f\n" % self.trainMAD
         # res += "Variance : %2.f\n" % self.trainVar
         res += "  Standard deviation : %.2f\n" % self.trainStd
         res += "  Coefficient of variation : %.2f %%\n" % self.trainVarCoeff
@@ -79,9 +79,9 @@ class Analyzer(object):
         trainSamples, trainResponses = samples[:self.trainCount], responses[:self.trainCount]
         testSamples, testResponses = samples[self.trainCount:], responses[self.trainCount:]
 
-        truthTableTrain, self.trainRate = (defaultdict(int), 0) 
+        truthTableTrain, self.trainRate = (defaultdict(int), 0)
         truthTableTest, self.testRate = (defaultdict(int), 0)
-        
+
         if 0 < self.__trainRatio:
             truthTableTrain, self.trainRate = self.__analyzePredict(trainSamples, trainResponses)
         if 0 < self.__trainRatio < 1:

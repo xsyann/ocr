@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 ##
-## generator.py for OCR
-## 
+## generator.py
+##
 ## Made by xsyann
 ## Contact  <contact@xsyann.com>
-## 
+##
 ## Started on  Thu Apr  3 19:57:08 2014 xsyann
 ## Last update Thu Apr  3 20:58:50 2014 xsyann
 ##
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         except (OSError, cv2.error) as err:
             print err
             sys.exit(1)
-            
-        print __doc__ 
+
+        print __doc__
         print reader_keys()
         dr.createDataset(args.prefix)
