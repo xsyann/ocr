@@ -26,7 +26,8 @@
         public samples          // Disponible après le pre-processing
         public responses        // Disponible après le pre-processing
         public sampleCount      // Disponible après le pre-processing
-        public classCount       // Nombre de classification
+       
+        public classCount       // Nombre de classifications
         public maxPerClass      // Nombre maximum de samples par classe
 
         Dataset(folders)
@@ -50,9 +51,9 @@
 
 **Exemple :**
 
-    Classes[] = [a b c d]
+    Classes = [a b c d]
 
-    DatasetItem[] = [a b b c d d]
+    Dataset = [a b b c d d]
 
     samples =     [ [0 2 0 3]   // a
                     [2 1 0 4]   // b
@@ -89,7 +90,7 @@ Génère une liste de dossier et créé un Dataset à partir de cette liste.
 
 `flags = LETTERS | DIGITS | SYMBOLS`
 
-`trainRatio` est le ratio entre les échantillon de test et d'entraînement.
+`trainRatio` est le ratio entre les échantillons de test et d'entraînement.
 
 `maxPerClass` est le nombre maximum d'échantillons par classe.
 
@@ -121,7 +122,7 @@ Génère une liste de dossier et créé un Dataset à partir de cette liste.
 
 ##Analyse
 
-Exemple : `(1, 1, 2, **2**, 4, 6, 9)`
+Exemple : `(1, 1, 2, *2*, 4, 6, 9)`
 
 - Moyenne : `3.6`
 
@@ -129,7 +130,7 @@ Exemple : `(1, 1, 2, **2**, 4, 6, 9)`
 
   Ecarts absolu (par rapport à la médiane) : `(1, 1, 0, 0, 2, 4, 7)`
 
- Triés : `(0, 0, 1, **1**, 2, 4, 7)`
+ Triés : `(0, 0, 1, *1*, 2, 4, 7)`
 
 - Ecart médian absolu = `1`
 
