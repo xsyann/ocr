@@ -19,7 +19,7 @@ Authors:
 Keys:
         Any Key - Write file
         DEL     - Remove the last written file
-        SPACE   - Reset
+        RET     - Reset
         UP      - Increase brush size
         DOWN    - Decrease brush size
         ESC     - Exit
@@ -38,6 +38,7 @@ class DatasetCreator:
 
     ESC = 27
     DEL = 127
+    RET = 13
     KEY_UP = 0
     KEY_DOWN = 1
     EXT = ".bmp"
@@ -60,7 +61,7 @@ class DatasetCreator:
 
             if k == self.ESC:
                 break
-            elif k == ord(' '):
+            elif k == self.RET:
                 self.sketcher.reset()
                 self.sketcher.show()
             elif k == self.KEY_UP:

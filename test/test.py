@@ -40,7 +40,8 @@ class TestOCR:
     KEY_DOWN = 1
 
     def __init__(self, model, filenames, flags, pattern):
-        self.ocr = OCR(OCR.MODEL_ANN, model, flags)
+        self.ocr = OCR()
+        self.ocr.loadModel(model, OCR.MODEL_ANN, flags)
         if filenames:
             counter = {}
             for filename in filenames:

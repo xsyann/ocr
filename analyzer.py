@@ -115,7 +115,7 @@ class Analyzer(object):
             self.trainVar = np.var(trainingSamples)
             self.trainStd = np.std(trainingSamples)
             if np.mean(trainingSamples) > 0:
-                self.trainVarCoeff = (np.var(trainingSamples) / np.mean(trainingSamples) * 100)
+                self.trainVarCoeff = (self.trainStd / self.trainMean * 100)
 
     def __analyzePredict(self, samples, responses):
         """Analyze the rate of true predictions.

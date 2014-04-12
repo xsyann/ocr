@@ -28,14 +28,14 @@ class Dataset(object):
     Generate samples and responses arrays from images.
     """
 
-    def __init__(self, folder, maxPerClass=170):
+    def __init__(self, folders):
         """Init the dataset from a folder dict of form
         {'label1': 'path/item1', 'label2': 'path/label2', ...}
         """
         self.samples = None
         self.responses = None
-        self.__folder = folder
-        self.__maxPerClass = maxPerClass
+        self.maxPerClass = 170
+        self.__folders = folders
         self.__classifications = self.__loadClassifications()
 
     def preprocess(self):
@@ -56,7 +56,7 @@ class Dataset(object):
 
     def __loadClassifications(self):
         classifications = []
-        for label, folder in self.__folder.iteritems():
+        for label, folder in self.__folders.iteritems():
             if not label in classifications:
                 classifications.append(label)
         return classifications
@@ -77,10 +77,10 @@ class Dataset(object):
         """Create dataset items.
         """
         items = []
-        for label, folder in self.__folder.iteritems():
+        for label, folder in self.__folders.iteritems():
             images = self.__getImages(folder)
             for i, image in enumerate(images):
-                if i >= self.__maxPerClass:
+                if i >= self.maxPerClass:
                     break
                 item = DatasetItem()
                 item.loadFromFile(image)

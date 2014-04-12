@@ -35,19 +35,22 @@ class OCR(object):
     DIGITS = 2
     SYMBOLS = 4
 
-    def __init__(self, type, load=None, flags=DIGITS, trainRatio=.5, maxPerClass=100):
-        folderList = OCR.generateFolderList(flags=flags)
-        self.__dataset = dataset.Dataset(folderList, maxPerClass)
-        if load:
-            self.__model = self.__initModel(type)
-            self.__model.load(load)
-        else:
-            self.__dataset.preprocess()
-            self.__model = self.__initModel(type)
-            self.__trainModel(verbose=True, trainRatio=trainRatio)
-
     def saveModel(self, filename):
         self.__model.save(filename)
+
+    def loadModel(self, filename, type=MODEL_ANN, flags=DIGITS):
+        folders = OCR.generateFolderList(flags=flags)
+        self.__dataset = dataset.Dataset(folders)
+        self.__model = self.__initModel(type)
+        self.__model.load(filename)
+
+    def trainModel(self, type=MODEL_ANN, flags=DIGITS, trainRatio=.5, maxPerClass=100, verbose=True):
+        folders = OCR.generateFolderList(flags=flags)
+        self.__dataset = dataset.Dataset(folders)
+        self.__dataset.maxPerClass = maxPerClass
+        self.__dataset.preprocess()
+        self.__model = self.__initModel(type)
+        self.__trainModel(verbose=verbose, trainRatio=trainRatio)
 
     def charFromImage(self, image):
         item = dataset.DatasetItem()
@@ -84,7 +87,6 @@ class OCR(object):
         as the models array.
         """
         models = [mod.ANN, mod.KNearest]
-        models = dict([(i, cls) for i, cls in enumerate(models)])
         Model = models[type]
         return Model(self.__dataset.classificationCount)
 
@@ -162,7 +164,8 @@ if __name__ == "__main__":
 
     print __doc__
 
-    type = OCR.MODEL_ANN
-    ocr = OCR(type, None, flags, args.train_ratio, args.max_per_class)
+    ocr = OCR()
+    modelType = OCR.MODEL_ANN
+    ocr.trainModel(modelType, flags, args.train_ratio, args.max_per_class)
     if args.train_ratio > 0:
-        ocr.saveModel(common.generateModelFilename(args, type))
+        ocr.saveModel(common.generateModelFilename(args, modelType))
