@@ -20,6 +20,12 @@ Authors:
 Keys:
         UP    - Increase boxes size
         DOWN  - Decrease boxes
+        RIGHT - Increase image size
+        LEFT  - Decrease image size
+        w     - Move up
+        a     - Move left
+        s     - Move down
+        d     - Move right
         SPACE - Write Dataset
 """
 
@@ -38,12 +44,16 @@ class DatasetReader:
     TEMPLATE = "template.bmp"
     CLASS_COUNT = 95
     MARGIN = 5
+    MARGIN_STEP = 1
     PREVIEW_HEIGHT = 850
     FINAL_SIZE = 50
+    RESIZE_STEP = 0.01
 
     KEY_ESC = 27
     KEY_UP = 0
     KEY_DOWN = 1
+    KEY_LEFT = 2
+    KEY_RIGHT = 3
 
     def __init__(self, filename, dryRun):
 
@@ -51,13 +61,17 @@ class DatasetReader:
             raise OSError(2, 'File not found', filename)
 
         self.__userMargin = 0
+        self.__resizeFactor = 1.0
         self.__dryRun = dryRun
+        self.__offset = (0, 0)
         cv2.namedWindow("Dataset Reader")
         templatePath = os.path.join(os.path.dirname(__file__), self.TEMPLATE)
         self.__template = cv2.imread(templatePath)
         self.__img = cv2.imread(filename)
-        h, w = self.__img.shape[0], self.__img.shape[1]
-        self.__template = cv2.resize(self.__template, (w, h))
+        h, w = self.__img.shape[:2]
+        tH, tW = self.__template.shape[:2]
+        factor = 1.0 / (((tW / float(w)) + (tH / float(h))) / 2.0)
+        self.__template = cv2.resize(self.__template, (0, 0), fx=factor, fy=factor)
 
     def getData(self, index):
         data = (string.lowercase + string.uppercase +
@@ -92,10 +106,58 @@ class DatasetReader:
         h, w = preview.shape[:2]
         factor = 1.0 / (float(h) / self.PREVIEW_HEIGHT)
         preview = cv2.resize(preview, (0, 0), fx=factor, fy=factor)
+        # Frame
+        resizeFactor = self.__resizeFactor
+        h, w = preview.shape[:2]
+        preview = cv2.resize(preview, (0, 0), fx=resizeFactor, fy=resizeFactor)
+        pH, pW = preview.shape[:2]
+        frame = np.zeros((h, w, 3), np.uint8)
+        frame[:h,:w] = (255, 255, 255)
+        offsetX, offsetY = self.__offset
+        movedX, movedY = (w - pW) / 2 + offsetX, (h - pH) / 2 + offsetY
+        x, y = max(0, min(movedX, w - pW)), max(0, min(movedY, h - pH))
+        self.__offset = (offsetX + x - movedX, offsetY + y - movedY)
+        frame[y:y+pH, x:x+pW] = preview
+        preview = frame
+
         for x, y, w, h in contours:
             x, y, w, h = tuple([int(factor * i) for i in (x, y, w, h)])
             cv2.rectangle(preview, (x, y), (x + w, y + h), (0, 50, 255), 1)
         cv2.imshow("Dataset Reader", preview)
+
+    def __move(self, k):
+        if k == ord('a'):
+            x, y = self.__offset
+            self.__offset = (x - 1, y)
+            self.__drawPreview()
+        elif k == ord('d'):
+            x, y = self.__offset
+            self.__offset = (x + 1, y)
+            self.__drawPreview()
+        elif k == ord('w'):
+            x, y = self.__offset
+            self.__offset = (x, y - 1)
+            self.__drawPreview()
+        elif k == ord('s'):
+            x, y = self.__offset
+            self.__offset = (x, y + 1)
+            self.__drawPreview()
+
+    def __resize(self, k):
+        if k == self.KEY_UP:
+            self.__userMargin -= self.MARGIN_STEP
+            self.__drawPreview()
+        elif k == self.KEY_DOWN:
+            self.__userMargin += self.MARGIN_STEP
+            self.__drawPreview()
+        elif k == self.KEY_LEFT:
+            self.__resizeFactor -= self.RESIZE_STEP
+            self.__resizeFactor = max(self.__resizeFactor, 0)
+            self.__drawPreview()
+        elif k == self.KEY_RIGHT:
+            self.__resizeFactor += self.RESIZE_STEP
+            self.__resizeFactor = min(self.__resizeFactor, 1)
+            self.__drawPreview()
 
     def __loop(self):
         while True:
@@ -105,12 +167,8 @@ class DatasetReader:
             elif k == ord(' '):
                 self.__createFiles()
                 break
-            elif k == self.KEY_UP:
-                self.__userMargin -= 1
-                self.__drawPreview()
-            elif k == self.KEY_DOWN:
-                self.__userMargin += 1
-                self.__drawPreview()
+            self.__move(k)
+            self.__resize(k)
 
     def __createFiles(self):
         folders = ocr.OCR.generateFolderList(ocr.OCR.DIGITS |

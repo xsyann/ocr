@@ -69,6 +69,12 @@ This command split a scanned dataset into multiple files.
 * `SPACE` to write the dataset
 * `UP` to increase boxes size
 * `DOWN` to decrease boxes size
+* `RIGHT` to increase image size
+* `LEFT` to decrease image size
+* `w` to move image up
+* `a` to move image left
+* `s` to move image down
+* `d` to move image right
 
 **Example:**
 
