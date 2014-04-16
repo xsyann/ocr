@@ -32,15 +32,16 @@ class Dataset(object):
         """Init the dataset from a folder dict of form
         {'label1': 'path/item1', 'label2': 'path/label2', ...}
         """
-        self.samples = None
-        self.responses = None
+        self.testSamples = None
+        self.testResponses = None
+        self.trainSamples = None
+        self.trainResponses = None
         self.maxPerClass = 170
         self.__folders = folders
         self.__classifications = self.__loadClassifications()
 
-    def preprocess(self):
-        items = self.__getItems()
-        self.__stackSamples(items)
+    def preprocess(self, trainRatio):
+        self.__stackArrays(self.__getItems(trainRatio))
 
     def getResponse(self, index):
         return self.__classifications[index]
@@ -50,9 +51,18 @@ class Dataset(object):
         return len(self.__classifications)
 
     @property
-    def sampleCount(self):
-        sampleCount, size = self.samples.shape
-        return sampleCount
+    def trainSampleCount(self):
+        if self.trainSamples.size == 0:
+            return 0
+        trainSampleCount, size = self.trainSamples.shape
+        return trainSampleCount
+
+    @property
+    def testSampleCount(self):
+        if self.testSamples.size == 0:
+            return 0
+        testSampleCount, size = self.testSamples.shape
+        return testSampleCount
 
     def __loadClassifications(self):
         classifications = []
@@ -61,35 +71,44 @@ class Dataset(object):
                 classifications.append(label)
         return classifications
 
-    def __stackSamples(self, items):
+    def __stackArraysAux(self, items):
         """Create samples and responses arrays.
         """
+        if not items:
+            return (np.array([]), np.array([]))
         samples = []
         responses = []
         nClass = self.classificationCount
         for item in items:
             responses.append(self.__classifications.index(item.classification))
             samples.append(item.sample)
-        self.samples = np.vstack(samples)
-        self.responses = np.array(responses)
+        return (np.vstack(samples), np.array(responses))
 
-    def __getItems(self):
+    def __stackArrays(self, items):
+        trainItems, testItems = items
+        self.trainSamples, self.trainResponses = self.__stackArraysAux(trainItems)
+        self.testSamples, self.testResponses = self.__stackArraysAux(testItems)
+
+    def __getItems(self, trainRatio):
         """Create dataset items.
         """
-        items = []
+        trainItems = []
+        testItems = []
         for label, folder in self.__folders.iteritems():
             images = self.__getImages(folder)
+            random.shuffle(images)
+            currentClassItems = []
             for i, image in enumerate(images):
                 if i >= self.maxPerClass:
                     break
                 item = DatasetItem()
                 item.loadFromFile(image)
                 item.classification = label
-                items.append(item)
-        # Shuffle items to have an heterogeneous array when we split
-        # samples and tests
-        random.shuffle(items)
-        return items
+                currentClassItems.append(item)
+            trainCount = int(np.ceil(min(len(images), self.maxPerClass) * trainRatio))
+            trainItems.extend(currentClassItems[:trainCount])
+            testItems.extend(currentClassItems[trainCount:])
+        return (trainItems, testItems)
 
     def __getImages(self, folder):
         """Returns a list of all images in folder.

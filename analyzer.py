@@ -73,11 +73,10 @@ class Analyzer(object):
     def analyze(self):
         """Analyze dataset repartition and model performance.
         """
-        self.trainCount = int(self.__dataset.sampleCount * self.__trainRatio)
-        self.testCount = self.__dataset.sampleCount - self.trainCount
-        samples, responses = self.__dataset.samples, self.__dataset.responses
-        trainSamples, trainResponses = samples[:self.trainCount], responses[:self.trainCount]
-        testSamples, testResponses = samples[self.trainCount:], responses[self.trainCount:]
+        self.trainCount = self.__dataset.trainSampleCount
+        self.testCount = self.__dataset.testSampleCount
+        trainSamples, trainResponses = self.__dataset.trainSamples, self.__dataset.trainResponses
+        testSamples, testResponses = self.__dataset.testSamples, self.__dataset.testResponses
 
         truthTableTrain, self.trainRate = (defaultdict(int), 0)
         truthTableTest, self.testRate = (defaultdict(int), 0)

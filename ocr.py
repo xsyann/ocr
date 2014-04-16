@@ -48,7 +48,7 @@ class OCR(object):
         folders = OCR.generateFolderList(flags=flags)
         self.__dataset = dataset.Dataset(folders)
         self.__dataset.maxPerClass = maxPerClass
-        self.__dataset.preprocess()
+        self.__dataset.preprocess(trainRatio)
         self.__model = self.__initModel(type)
         self.__trainModel(verbose=verbose, trainRatio=trainRatio)
 
@@ -68,14 +68,11 @@ class OCR(object):
         return response
 
     def __trainModel(self, verbose=False, trainRatio=.5):
-        trainCount = int(self.__dataset.sampleCount * trainRatio)
-        samples = self.__dataset.samples
-        responses = self.__dataset.responses
         if verbose:
             analyzer = Analyzer(self.__model, self.__dataset, trainRatio)
             analyzer.start()
-        if trainCount > 0:
-            self.__model.train(samples[:trainCount], responses[:trainCount])
+        if self.__dataset.trainSampleCount > 0:
+            self.__model.train(self.__dataset.trainSamples, self.__dataset.trainResponses)
         if verbose:
             analyzer.stop()
             analyzer.analyze()
