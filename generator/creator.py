@@ -32,7 +32,7 @@ import numpy as np
 import cv2
 import common
 from ocr import OCR
-from common import Sketcher, Brush
+from ocr.common import Sketcher, Brush
 
 class DatasetCreator:
 

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>ocr.test.test</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="ocr-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/xsyann/ocr">OCR</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="ocr-module.html">Package&nbsp;ocr</a> ::
+        <a href="ocr.test-module.html">Package&nbsp;test</a> ::
+        Module&nbsp;test
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="ocr.test.test-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="ocr.test.test-module.html">Module ocr.test.test</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">## test.py for OCR</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">## Made by xsyann</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">## Contact  &lt;contact@xsyann.com&gt;</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">## Started on  Fri Mar 28 15:09:44 2014 xsyann</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">## Last update Fri Apr  4 16:36:43 2014 xsyann</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">OCR Test.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">Authors:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">        Nicolas PELICAN</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">        Yann KOETH</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">Keys:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">  SPACE - Test</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">  r     - reset</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">  UP    - Increase brush size</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">  DOWN  - Decrease brush size</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">  ESC   - exit</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">string</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">cv2</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module ocr.common=ocr.common-module.html"><a title="ocr.common" class="py-name" href="#" onclick="return doclink('link-0', 'common', 'link-0');">common</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">subprocess</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="ocr.common" class="py-name" href="#" onclick="return doclink('link-1', 'common', 'link-0');">common</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class ocr.common.Sketcher=ocr.common.Sketcher-class.html"><a title="ocr.common.Sketcher" class="py-name" href="#" onclick="return doclink('link-2', 'Sketcher', 'link-2');">Sketcher</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Class ocr.common.Brush=ocr.common.Brush-class.html"><a title="ocr.common.Brush" class="py-name" href="#" onclick="return doclink('link-3', 'Brush', 'link-3');">Brush</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package ocr=ocr-module.html,Module ocr.ocr=ocr.ocr-module.html"><a title="ocr
+ocr.ocr" class="py-name" href="#" onclick="return doclink('link-4', 'ocr', 'link-4');">ocr</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class ocr.ocr.OCR=ocr.ocr.OCR-class.html"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-5', 'OCR', 'link-5');">OCR</a></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="TestOCR"></a><div id="TestOCR-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="TestOCR-toggle" onclick="return toggle('TestOCR');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="ocr.test.test.TestOCR-class.html">TestOCR</a><tt class="py-op">:</tt> </tt>
+</div><div id="TestOCR-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TestOCR-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable ocr.generator.creator.DatasetCreator.ESC=ocr.generator.creator.DatasetCreator-class.html#ESC,Variable ocr.test.test.TestOCR.ESC=ocr.test.test.TestOCR-class.html#ESC"><a title="ocr.generator.creator.DatasetCreator.ESC
+ocr.test.test.TestOCR.ESC" class="py-name" href="#" onclick="return doclink('link-6', 'ESC', 'link-6');">ESC</a></tt> <tt class="py-op">=</tt> <tt class="py-number">27</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable ocr.generator.creator.DatasetCreator.KEY_UP=ocr.generator.creator.DatasetCreator-class.html#KEY_UP,Variable ocr.generator.reader.DatasetReader.KEY_UP=ocr.generator.reader.DatasetReader-class.html#KEY_UP,Variable ocr.test.test.TestOCR.KEY_UP=ocr.test.test.TestOCR-class.html#KEY_UP"><a title="ocr.generator.creator.DatasetCreator.KEY_UP
+ocr.generator.reader.DatasetReader.KEY_UP
+ocr.test.test.TestOCR.KEY_UP" class="py-name" href="#" onclick="return doclink('link-7', 'KEY_UP', 'link-7');">KEY_UP</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable ocr.generator.creator.DatasetCreator.KEY_DOWN=ocr.generator.creator.DatasetCreator-class.html#KEY_DOWN,Variable ocr.generator.reader.DatasetReader.KEY_DOWN=ocr.generator.reader.DatasetReader-class.html#KEY_DOWN,Variable ocr.test.test.TestOCR.KEY_DOWN=ocr.test.test.TestOCR-class.html#KEY_DOWN"><a title="ocr.generator.creator.DatasetCreator.KEY_DOWN
+ocr.generator.reader.DatasetReader.KEY_DOWN
+ocr.test.test.TestOCR.KEY_DOWN" class="py-name" href="#" onclick="return doclink('link-8', 'KEY_DOWN', 'link-8');">KEY_DOWN</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="TestOCR.__init__"></a><div id="TestOCR.__init__-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="TestOCR.__init__-toggle" onclick="return toggle('TestOCR.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.test.test.TestOCR-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">model</tt><tt class="py-op">,</tt> <tt class="py-param">filenames</tt><tt class="py-op">,</tt> <tt class="py-param">flags</tt><tt class="py-op">,</tt> <tt class="py-param">pattern</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestOCR.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestOCR.__init__-expanded"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="ocr
+ocr.ocr" class="py-name" href="#" onclick="return doclink('link-9', 'ocr', 'link-4');">ocr</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-10', 'OCR', 'link-5');">OCR</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="ocr
+ocr.ocr" class="py-name" href="#" onclick="return doclink('link-11', 'ocr', 'link-4');">ocr</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method ocr.ocr.OCR.loadModel()=ocr.ocr.OCR-class.html#loadModel"><a title="ocr.ocr.OCR.loadModel" class="py-name" href="#" onclick="return doclink('link-12', 'loadModel', 'link-12');">loadModel</a></tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-13', 'OCR', 'link-5');">OCR</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable ocr.ocr.OCR.MODEL_ANN=ocr.ocr.OCR-class.html#MODEL_ANN"><a title="ocr.ocr.OCR.MODEL_ANN" class="py-name" href="#" onclick="return doclink('link-14', 'MODEL_ANN', 'link-14');">MODEL_ANN</a></tt><tt class="py-op">,</tt> <tt class="py-name">flags</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">filenames</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">            <tt class="py-name">counter</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">filename</tt> <tt class="py-keyword">in</tt> <tt class="py-name">filenames</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                <tt class="py-name">ch</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="ocr
+ocr.ocr" class="py-name" href="#" onclick="return doclink('link-15', 'ocr', 'link-4');">ocr</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method ocr.ocr.OCR.charFromFile()=ocr.ocr.OCR-class.html#charFromFile"><a title="ocr.ocr.OCR.charFromFile" class="py-name" href="#" onclick="return doclink('link-16', 'charFromFile', 'link-16');">charFromFile</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">pattern</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                    <tt class="py-name">label</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method ocr.test.test.TestOCR.__exec()=ocr.test.test.TestOCR-class.html#__exec"><a title="ocr.test.test.TestOCR.__exec" class="py-name" href="#" onclick="return doclink('link-17', '__exec', 'link-17');">__exec</a></tt><tt class="py-op">(</tt><tt class="py-name">pattern</tt><tt class="py-op">,</tt> <tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">label</tt> <tt class="py-keyword">in</tt> <tt class="py-name">counter</tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                        <tt class="py-name">predicted</tt><tt class="py-op">,</tt> <tt class="py-name">total</tt> <tt class="py-op">=</tt> <tt class="py-name">counter</tt><tt class="py-op">[</tt><tt class="py-name">label</tt><tt class="py-op">]</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                        <tt class="py-name">counter</tt><tt class="py-op">[</tt><tt class="py-name">label</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">predicted</tt> <tt class="py-op">+</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">label</tt> <tt class="py-op">==</tt> <tt class="py-name">ch</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">total</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                        <tt class="py-name">counter</tt><tt class="py-op">[</tt><tt class="py-name">label</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">label</tt> <tt class="py-op">==</tt> <tt class="py-name">ch</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"%s in %s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">ch</tt><tt class="py-op">,</tt> <tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">pattern</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method ocr.test.test.TestOCR.__analyze()=ocr.test.test.TestOCR-class.html#__analyze"><a title="ocr.test.test.TestOCR.__analyze" class="py-name" href="#" onclick="return doclink('link-18', '__analyze', 'link-18');">__analyze</a></tt><tt class="py-op">(</tt><tt class="py-name">counter</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">            <tt class="py-name">h</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-number">200</tt><tt class="py-op">,</tt> <tt class="py-number">200</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-name">img</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">h</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt><tt class="py-op">,</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">uint8</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">img</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">255</tt><tt class="py-op">,</tt> <tt class="py-number">255</tt><tt class="py-op">,</tt> <tt class="py-number">255</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">brush</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="ocr.common.Brush" class="py-name" href="#" onclick="return doclink('link-19', 'Brush', 'link-3');">Brush</a></tt><tt class="py-op">(</tt><tt class="py-string">"Brush"</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sketcher</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="ocr.common.Sketcher" class="py-name" href="#" onclick="return doclink('link-20', 'Sketcher', 'link-2');">Sketcher</a></tt><tt class="py-op">(</tt><tt class="py-string">'Test OCR'</tt><tt class="py-op">,</tt> <tt class="py-name">img</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">brush</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="TestOCR.__analyze"></a><div id="TestOCR.__analyze-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="TestOCR.__analyze-toggle" onclick="return toggle('TestOCR.__analyze');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.test.test.TestOCR-class.html#__analyze">__analyze</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">counter</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestOCR.__analyze-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestOCR.__analyze-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">""</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">totalPercent</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">label</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">predicted</tt><tt class="py-op">,</tt> <tt class="py-name">total</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sorted</tt><tt class="py-op">(</tt><tt class="py-name">counter</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-name">percent</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">predicted</tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-name">total</tt> <tt class="py-op">*</tt> <tt class="py-number">100</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">totalPercent</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">percent</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"{0}\t{1} / {2} - {3} %"</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">label</tt><tt class="py-op">,</tt> <tt class="py-name">predicted</tt><tt class="py-op">,</tt> <tt class="py-name">total</tt><tt class="py-op">,</tt> <tt class="py-name">percent</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"\nTotal recognized : {0:.1f} %\n"</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">mean</tt><tt class="py-op">(</tt><tt class="py-name">totalPercent</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="TestOCR.__exec"></a><div id="TestOCR.__exec-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="TestOCR.__exec-toggle" onclick="return toggle('TestOCR.__exec');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.test.test.TestOCR-class.html#__exec">__exec</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">arg</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestOCR.__exec-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestOCR.__exec-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">out</tt> <tt class="py-op">=</tt> <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">Popen</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">file</tt><tt class="py-op">,</tt> <tt class="py-name">arg</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">stdout</tt><tt class="py-op">=</tt><tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">PIPE</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">communicate</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">out</tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="TestOCR.__displayResponse"></a><div id="TestOCR.__displayResponse-def"><a name="L79"></a><tt class="py-lineno"> 79</tt> <a class="py-toggle" href="#" id="TestOCR.__displayResponse-toggle" onclick="return toggle('TestOCR.__displayResponse');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.test.test.TestOCR-class.html#__displayResponse">__displayResponse</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ch</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestOCR.__displayResponse-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestOCR.__displayResponse-expanded"><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">75</tt><tt class="py-op">,</tt> <tt class="py-number">75</tt><tt class="py-op">,</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">uint8</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">response</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">255</tt><tt class="py-op">,</tt> <tt class="py-number">255</tt><tt class="py-op">,</tt> <tt class="py-number">255</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">putText</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">,</tt> <tt class="py-name">ch</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">15</tt><tt class="py-op">,</tt> <tt class="py-number">35</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">FONT_HERSHEY_PLAIN</tt><tt class="py-op">,</tt> <tt class="py-number">3.0</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">imshow</tt><tt class="py-op">(</tt><tt class="py-string">"Response"</tt><tt class="py-op">,</tt> <tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="TestOCR.run"></a><div id="TestOCR.run-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="TestOCR.run-toggle" onclick="return toggle('TestOCR.run');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.test.test.TestOCR-class.html#run">run</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestOCR.run-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestOCR.run-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-name">k</tt> <tt class="py-op">=</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">waitKey</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> <tt class="py-op">&amp;</tt> <tt class="py-number">0xFF</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">k</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="ocr.generator.creator.DatasetCreator.ESC
+ocr.test.test.TestOCR.ESC" class="py-name" href="#" onclick="return doclink('link-21', 'ESC', 'link-6');">ESC</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">k</tt> <tt class="py-op">==</tt> <tt class="py-name">ord</tt><tt class="py-op">(</tt><tt class="py-string">'r'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sketcher</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method ocr.common.Sketcher.reset()=ocr.common.Sketcher-class.html#reset"><a title="ocr.common.Sketcher.reset" class="py-name" href="#" onclick="return doclink('link-22', 'reset', 'link-22');">reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sketcher</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method ocr.common.Brush.show()=ocr.common.Brush-class.html#show,Method ocr.common.Sketcher.show()=ocr.common.Sketcher-class.html#show"><a title="ocr.common.Brush.show
+ocr.common.Sketcher.show" class="py-name" href="#" onclick="return doclink('link-23', 'show', 'link-23');">show</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">k</tt> <tt class="py-op">==</tt> <tt class="py-name">ord</tt><tt class="py-op">(</tt><tt class="py-string">' '</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                <tt class="py-name">ch</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="ocr
+ocr.ocr" class="py-name" href="#" onclick="return doclink('link-24', 'ocr', 'link-4');">ocr</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method ocr.ocr.OCR.charFromImage()=ocr.ocr.OCR-class.html#charFromImage"><a title="ocr.ocr.OCR.charFromImage" class="py-name" href="#" onclick="return doclink('link-25', 'charFromImage', 'link-25');">charFromImage</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sketcher</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Variable ocr.common.Sketcher.sketch=ocr.common.Sketcher-class.html#sketch"><a title="ocr.common.Sketcher.sketch" class="py-name" href="#" onclick="return doclink('link-26', 'sketch', 'link-26');">sketch</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sketcher</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="ocr.common.Brush.show
+ocr.common.Sketcher.show" class="py-name" href="#" onclick="return doclink('link-27', 'show', 'link-23');">show</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sketcher</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="ocr.common.Sketcher.reset" class="py-name" href="#" onclick="return doclink('link-28', 'reset', 'link-22');">reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method ocr.test.test.TestOCR.__displayResponse()=ocr.test.test.TestOCR-class.html#__displayResponse"><a title="ocr.test.test.TestOCR.__displayResponse" class="py-name" href="#" onclick="return doclink('link-29', '__displayResponse', 'link-29');">__displayResponse</a></tt><tt class="py-op">(</tt><tt class="py-name">ch</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"OCR : %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ch</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">k</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="ocr.generator.creator.DatasetCreator.KEY_UP
+ocr.generator.reader.DatasetReader.KEY_UP
+ocr.test.test.TestOCR.KEY_UP" class="py-name" href="#" onclick="return doclink('link-30', 'KEY_UP', 'link-7');">KEY_UP</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">brush</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Variable ocr.common.Brush.brushSize=ocr.common.Brush-class.html#brushSize"><a title="ocr.common.Brush.brushSize" class="py-name" href="#" onclick="return doclink('link-31', 'brushSize', 'link-31');">brushSize</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">k</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="ocr.generator.creator.DatasetCreator.KEY_DOWN
+ocr.generator.reader.DatasetReader.KEY_DOWN
+ocr.test.test.TestOCR.KEY_DOWN" class="py-name" href="#" onclick="return doclink('link-32', 'KEY_DOWN', 'link-8');">KEY_DOWN</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">brush</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="ocr.common.Brush.brushSize" class="py-name" href="#" onclick="return doclink('link-33', 'brushSize', 'link-31');">brushSize</a></tt> <tt class="py-op">-=</tt> <tt class="py-number">1</tt> </tt>
+</div></div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">argparse</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-name">parser</tt> <tt class="py-op">=</tt> <tt class="py-name">argparse</tt><tt class="py-op">.</tt><tt class="py-name">ArgumentParser</tt><tt class="py-op">(</tt><tt class="py-name">description</tt><tt class="py-op">=</tt><tt class="py-string">'Test OCR.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">add_argument</tt><tt class="py-op">(</tt><tt class="py-string">'-l'</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">'letters'</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">'store_true'</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">'Recognize letters'</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">add_argument</tt><tt class="py-op">(</tt><tt class="py-string">'-s'</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">'symbols'</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">'store_true'</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">'Recognize symbols'</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">add_argument</tt><tt class="py-op">(</tt><tt class="py-string">'-d'</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">'digits'</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">'store_true'</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">'Recognize digits'</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">add_argument</tt><tt class="py-op">(</tt><tt class="py-string">'-p'</tt><tt class="py-op">,</tt> <tt class="py-string">'--pattern'</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">'Pattern to extract label from filename'</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">add_argument</tt><tt class="py-op">(</tt><tt class="py-string">"filename"</tt><tt class="py-op">,</tt> <tt class="py-name">nargs</tt><tt class="py-op">=</tt><tt class="py-string">'*'</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">'Image to recognize'</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">args</tt> <tt class="py-op">=</tt> <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">parse_args</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">args</tt><tt class="py-op">.</tt><tt class="py-name">letters</tt><tt class="py-op">:</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">|=</tt> <tt id="link-34" class="py-name"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-34', 'OCR', 'link-5');">OCR</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Variable ocr.ocr.OCR.LETTERS=ocr.ocr.OCR-class.html#LETTERS"><a title="ocr.ocr.OCR.LETTERS" class="py-name" href="#" onclick="return doclink('link-35', 'LETTERS', 'link-35');">LETTERS</a></tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">args</tt><tt class="py-op">.</tt><tt class="py-name">digits</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">|=</tt> <tt id="link-36" class="py-name"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-36', 'OCR', 'link-5');">OCR</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Variable ocr.ocr.OCR.DIGITS=ocr.ocr.OCR-class.html#DIGITS"><a title="ocr.ocr.OCR.DIGITS" class="py-name" href="#" onclick="return doclink('link-37', 'DIGITS', 'link-37');">DIGITS</a></tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">args</tt><tt class="py-op">.</tt><tt class="py-name">symbols</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt class="py-name">flags</tt> <tt class="py-op">|=</tt> <tt id="link-38" class="py-name"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-38', 'OCR', 'link-5');">OCR</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Variable ocr.ocr.OCR.SYMBOLS=ocr.ocr.OCR-class.html#SYMBOLS"><a title="ocr.ocr.OCR.SYMBOLS" class="py-name" href="#" onclick="return doclink('link-39', 'SYMBOLS', 'link-39');">SYMBOLS</a></tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">flags</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">print_help</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt id="link-40" class="py-name" targets="Package ocr.test=ocr.test-module.html,Module ocr.test.test=ocr.test.test-module.html"><a title="ocr.test
+ocr.test.test" class="py-name" href="#" onclick="return doclink('link-40', 'test', 'link-40');">test</a></tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name" targets="Class ocr.test.test.TestOCR=ocr.test.test.TestOCR-class.html"><a title="ocr.test.test.TestOCR" class="py-name" href="#" onclick="return doclink('link-41', 'TestOCR', 'link-41');">TestOCR</a></tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="ocr.common" class="py-name" href="#" onclick="return doclink('link-42', 'common', 'link-0');">common</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Function ocr.common.generateModelFilename()=ocr.common-module.html#generateModelFilename"><a title="ocr.common.generateModelFilename" class="py-name" href="#" onclick="return doclink('link-43', 'generateModelFilename', 'link-43');">generateModelFilename</a></tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt id="link-44" class="py-name"><a title="ocr.ocr.OCR" class="py-name" href="#" onclick="return doclink('link-44', 'OCR', 'link-5');">OCR</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="ocr.ocr.OCR.MODEL_ANN" class="py-name" href="#" onclick="return doclink('link-45', 'MODEL_ANN', 'link-14');">MODEL_ANN</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">.</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">flags</tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">.</tt><tt class="py-name">pattern</tt><tt class="py-op">)</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">OSError</tt><tt class="py-op">,</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">err</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">err</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">args</tt><tt class="py-op">.</tt><tt class="py-name">filename</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">__doc__</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt id="link-46" class="py-name"><a title="ocr.test
+ocr.test.test" class="py-name" href="#" onclick="return doclink('link-46', 'test', 'link-40');">test</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method ocr.generator.creator.DatasetCreator.run()=ocr.generator.creator.DatasetCreator-class.html#run,Method ocr.test.test.TestOCR.run()=ocr.test.test.TestOCR-class.html#run"><a title="ocr.generator.creator.DatasetCreator.run
+ocr.test.test.TestOCR.run" class="py-name" href="#" onclick="return doclink('link-47', 'run', 'link-47');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">destroyAllWindows</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="ocr-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/xsyann/ocr">OCR</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Sat Apr 19 18:35:23 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

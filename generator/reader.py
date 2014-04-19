@@ -48,6 +48,7 @@ class DatasetReader:
     PREVIEW_HEIGHT = 850
     FINAL_SIZE = 50
     RESIZE_STEP = 0.01
+    MOVE_STEP = 5
 
     KEY_ESC = 27
     KEY_UP = 0
@@ -91,7 +92,7 @@ class DatasetReader:
         self.__drawPreview()
         self.__loop()
 
-    def __calculateContours(self):
+    def __getContours(self):
         contours = []
         margin = self.MARGIN + self.__userMargin
         for x, y, w, h in self.__contours:
@@ -100,47 +101,70 @@ class DatasetReader:
             contours.append((x, y, w, h))
         return contours
 
-    def __drawPreview(self):
-        preview = self.__img.copy()
-        contours = self.__calculateContours()
+    def __mergeImages(self, frame, content, offset):
+        """Merge content into frame with offset.
+        """
+        frameH, frameW = frame.shape[:2]
+        contentH, contentW = content.shape[:2]
+        x, y = (frameW - contentW) / 2 + offset[0], (frameH - contentH) / 2 + offset[1]
+        if x > frameW or y > frameH or x < -contentW or y < -contentH:
+            return frame
+        frameX, frameY = max(min(x, frameW), 0), max(min(y, frameH), 0)
+        contentX, contentY = -min(0, x), -min(0, y)
+        sizeX, sizeY = contentW, contentH
+        if x < 0:
+            sizeX = contentW + x
+        if x + contentW > frameW:
+            sizeX = frameW - x
+        if y < 0:
+            sizeY = contentH + y
+        if y + contentH > frameH:
+            sizeY = frameH - y
+        frame[frameY:frameY+sizeY, frameX:frameX+sizeX] = content[contentY:contentY+sizeY, contentX:contentX+sizeX]
+        return frame
+
+    def __getPreviewImage(self, preview, resize=True):
         h, w = preview.shape[:2]
-        factor = 1.0 / (float(h) / self.PREVIEW_HEIGHT)
-        preview = cv2.resize(preview, (0, 0), fx=factor, fy=factor)
-        # Frame
+        # User resize
         resizeFactor = self.__resizeFactor
-        h, w = preview.shape[:2]
         preview = cv2.resize(preview, (0, 0), fx=resizeFactor, fy=resizeFactor)
-        pH, pW = preview.shape[:2]
+        # Frame
         frame = np.zeros((h, w, 3), np.uint8)
         frame[:h,:w] = (255, 255, 255)
-        offsetX, offsetY = self.__offset
-        movedX, movedY = (w - pW) / 2 + offsetX, (h - pH) / 2 + offsetY
-        x, y = max(0, min(movedX, w - pW)), max(0, min(movedY, h - pH))
-        self.__offset = (offsetX + x - movedX, offsetY + y - movedY)
-        frame[y:y+pH, x:x+pW] = preview
-        preview = frame
+        frame = self.__mergeImages(frame, preview, self.__offset)
+        # Resize To Fit Screen
+        if resize:
+            factor = 1.0 / (float(h) / self.PREVIEW_HEIGHT)
+            frame = cv2.resize(frame, (0, 0), fx=factor, fy=factor)
+        return frame
 
+    def __drawPreview(self):
+        preview = self.__getPreviewImage(self.__img.copy())
+        contours = self.__getContours()
+        h, w = self.__img.shape[:2]
+        factor = 1.0 / (float(h) / self.PREVIEW_HEIGHT)
         for x, y, w, h in contours:
-            x, y, w, h = tuple([int(factor * i) for i in (x, y, w, h)])
+            # Resize contours to preview size
+            x, y, w, h = tuple([int(i * factor) for i in (x, y, w, h)])
             cv2.rectangle(preview, (x, y), (x + w, y + h), (0, 50, 255), 1)
         cv2.imshow("Dataset Reader", preview)
 
     def __move(self, k):
         if k == ord('a'):
             x, y = self.__offset
-            self.__offset = (x - 1, y)
+            self.__offset = (x - self.MOVE_STEP, y)
             self.__drawPreview()
         elif k == ord('d'):
             x, y = self.__offset
-            self.__offset = (x + 1, y)
+            self.__offset = (x + self.MOVE_STEP, y)
             self.__drawPreview()
         elif k == ord('w'):
             x, y = self.__offset
-            self.__offset = (x, y - 1)
+            self.__offset = (x, y - self.MOVE_STEP)
             self.__drawPreview()
         elif k == ord('s'):
             x, y = self.__offset
-            self.__offset = (x, y + 1)
+            self.__offset = (x, y + self.MOVE_STEP)
             self.__drawPreview()
 
     def __resize(self, k):
@@ -152,7 +176,7 @@ class DatasetReader:
             self.__drawPreview()
         elif k == self.KEY_LEFT:
             self.__resizeFactor -= self.RESIZE_STEP
-            self.__resizeFactor = max(self.__resizeFactor, 0)
+            self.__resizeFactor = max(self.__resizeFactor, 0.1)
             self.__drawPreview()
         elif k == self.KEY_RIGHT:
             self.__resizeFactor += self.RESIZE_STEP
@@ -174,12 +198,13 @@ class DatasetReader:
         folders = ocr.OCR.generateFolderList(ocr.OCR.DIGITS |
                                              ocr.OCR.LETTERS |
                                              ocr.OCR.SYMBOLS)
-        contours = self.__calculateContours()
+        preview = self.__getPreviewImage(self.__img.copy(), resize=False)
+        contours = self.__getContours()
         for i, cnt in enumerate(contours):
             x, y, w, h = cnt
             folder = folders[self.getData(i)]
             path = common.generateFilename(folder, self.__prefix, ".bmp")
-            item = self.__img[y:y+h, x:x+w]
+            item = preview[y:y+h, x:x+w]
             item = cv2.resize(item, (self.FINAL_SIZE, self.FINAL_SIZE))
             cv2.imshow("Dataset " + self.getData(i), item)
             if i >= 1:

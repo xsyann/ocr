@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>ocr.models</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="ocr-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/xsyann/ocr">OCR</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="ocr-module.html">Package&nbsp;ocr</a> ::
+        Module&nbsp;models
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="ocr.models-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="ocr.models-module.html">Module ocr.models</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">## ocr.py</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">## Made by xsyann</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">## Contact  &lt;contact@xsyann.com&gt;</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">## Started on  Fri Mar 28 15:09:44 2014 xsyann</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">## Last update Thu Apr  3 21:00:57 2014 xsyann</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">Pattern recognition models for classification using OpenCV</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">Authors:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">        Nicolas PELICAN</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        Yann KOETH</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">string</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">random</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">cv2</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="AbstractStatModel"></a><div id="AbstractStatModel-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="AbstractStatModel-toggle" onclick="return toggle('AbstractStatModel');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="ocr.models.AbstractStatModel-class.html">AbstractStatModel</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractStatModel-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="AbstractStatModel-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="AbstractStatModel.__init__"></a><div id="AbstractStatModel.__init__-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="AbstractStatModel.__init__-toggle" onclick="return toggle('AbstractStatModel.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.AbstractStatModel-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">nClass</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractStatModel.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AbstractStatModel.__init__-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable ocr.dataset.Dataset.classificationCount=ocr.dataset.Dataset-class.html#classificationCount"><a title="ocr.dataset.Dataset.classificationCount" class="py-name" href="#" onclick="return doclink('link-0', 'classificationCount', 'link-0');">classificationCount</a></tt> <tt class="py-op">=</tt> <tt class="py-name">nClass</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="AbstractStatModel.load"></a><div id="AbstractStatModel.load-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="AbstractStatModel.load-toggle" onclick="return toggle('AbstractStatModel.load');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.AbstractStatModel-class.html#load">load</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractStatModel.load-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AbstractStatModel.load-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">OSError</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-string">'File not found'</tt><tt class="py-op">,</tt> <tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method ocr.models.AbstractStatModel.load()=ocr.models.AbstractStatModel-class.html#load"><a title="ocr.models.AbstractStatModel.load" class="py-name" href="#" onclick="return doclink('link-1', 'load', 'link-1');">load</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="AbstractStatModel.save"></a><div id="AbstractStatModel.save-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="AbstractStatModel.save-toggle" onclick="return toggle('AbstractStatModel.save');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.AbstractStatModel-class.html#save">save</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractStatModel.save-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AbstractStatModel.save-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method ocr.models.AbstractStatModel.save()=ocr.models.AbstractStatModel-class.html#save"><a title="ocr.models.AbstractStatModel.save" class="py-name" href="#" onclick="return doclink('link-2', 'save', 'link-2');">save</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="AbstractStatModel.unrollResponses"></a><div id="AbstractStatModel.unrollResponses-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="AbstractStatModel.unrollResponses-toggle" onclick="return toggle('AbstractStatModel.unrollResponses');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.AbstractStatModel-class.html#unrollResponses">unrollResponses</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">responses</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractStatModel.unrollResponses-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AbstractStatModel.unrollResponses-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-docstring">"""Convert array of form [2, 3] to</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        [0, 0, 1, 0, 0, 0 1]</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-name">sampleCount</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">responses</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-name">newResponses</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-name">sampleCount</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="ocr.dataset.Dataset.classificationCount" class="py-name" href="#" onclick="return doclink('link-3', 'classificationCount', 'link-0');">classificationCount</a></tt><tt class="py-op">,</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">responsesIndexes</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">(</tt><tt class="py-name">responses</tt> <tt class="py-op">+</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">arange</tt><tt class="py-op">(</tt><tt class="py-name">sampleCount</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="ocr.dataset.Dataset.classificationCount" class="py-name" href="#" onclick="return doclink('link-4', 'classificationCount', 'link-0');">classificationCount</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">newResponses</tt><tt class="py-op">[</tt><tt class="py-name">responsesIndexes</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">newResponses</tt> </tt>
+</div></div><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="ANN"></a><div id="ANN-def"><a name="L49"></a><tt class="py-lineno">49</tt> <a class="py-toggle" href="#" id="ANN-toggle" onclick="return toggle('ANN');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="ocr.models.ANN-class.html">ANN</a><tt class="py-op">(</tt><tt class="py-base-class">AbstractStatModel</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ANN-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ANN-expanded"><a name="ANN.__init__"></a><div id="ANN.__init__-def"><a name="L50"></a><tt class="py-lineno">50</tt> <a class="py-toggle" href="#" id="ANN.__init__-toggle" onclick="return toggle('ANN.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.ANN-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">nClass</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ANN.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ANN.__init__-expanded"><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name" targets="Class ocr.models.ANN=ocr.models.ANN-class.html"><a title="ocr.models.ANN" class="py-name" href="#" onclick="return doclink('link-5', 'ANN', 'link-5');">ANN</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method ocr.analyzer.Analyzer.__init__()=ocr.analyzer.Analyzer-class.html#__init__,Method ocr.common.Brush.__init__()=ocr.common.Brush-class.html#__init__,Method ocr.common.Sketcher.__init__()=ocr.common.Sketcher-class.html#__init__,Method ocr.dataset.Dataset.__init__()=ocr.dataset.Dataset-class.html#__init__,Method ocr.dataset.DatasetItem.__init__()=ocr.dataset.DatasetItem-class.html#__init__,Method ocr.generator.creator.DatasetCreator.__init__()=ocr.generator.creator.DatasetCreator-class.html#__init__,Method ocr.generator.reader.DatasetReader.__init__()=ocr.generator.reader.DatasetReader-class.html#__init__,Method ocr.models.ANN.__init__()=ocr.models.ANN-class.html#__init__,Method ocr.models.AbstractStatModel.__init__()=ocr.models.AbstractStatModel-class.html#__init__,Method ocr.models.KNearest.__init__()=ocr.models.KNearest-class.html#__init__,Method ocr.test.test.TestOCR.__init__()=ocr.test.test.TestOCR-class.html#__init__"><a title="ocr.analyzer.Analyzer.__init__
+ocr.common.Brush.__init__
+ocr.common.Sketcher.__init__
+ocr.dataset.Dataset.__init__
+ocr.dataset.DatasetItem.__init__
+ocr.generator.creator.DatasetCreator.__init__
+ocr.generator.reader.DatasetReader.__init__
+ocr.models.ANN.__init__
+ocr.models.AbstractStatModel.__init__
+ocr.models.KNearest.__init__
+ocr.test.test.TestOCR.__init__" class="py-name" href="#" onclick="return doclink('link-6', '__init__', 'link-6');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">nClass</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt> <tt class="py-op">=</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">ANN_MLP</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="ANN.train"></a><div id="ANN.train-def"><a name="L54"></a><tt class="py-lineno">54</tt> <a class="py-toggle" href="#" id="ANN.train-toggle" onclick="return toggle('ANN.train');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.ANN-class.html#train">train</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">samples</tt><tt class="py-op">,</tt> <tt class="py-param">responses</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ANN.train-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ANN.train-expanded"><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">sampleCount</tt><tt class="py-op">,</tt> <tt class="py-name">sampleSize</tt> <tt class="py-op">=</tt> <tt class="py-name">samples</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-name">newResponses</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method ocr.models.AbstractStatModel.unrollResponses()=ocr.models.AbstractStatModel-class.html#unrollResponses"><a title="ocr.models.AbstractStatModel.unrollResponses" class="py-name" href="#" onclick="return doclink('link-7', 'unrollResponses', 'link-7');">unrollResponses</a></tt><tt class="py-op">(</tt><tt class="py-name">responses</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="ocr.dataset.Dataset.classificationCount" class="py-name" href="#" onclick="return doclink('link-8', 'classificationCount', 'link-0');">classificationCount</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-name">layers</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">int32</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">sampleSize</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="ocr.dataset.Dataset.classificationCount" class="py-name" href="#" onclick="return doclink('link-9', 'classificationCount', 'link-0');">classificationCount</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt class="py-name">create</tt><tt class="py-op">(</tt><tt class="py-name">layers</tt><tt class="py-op">,</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">ANN_MLP_SIGMOID_SYM</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-name">maxIter</tt> <tt class="py-op">=</tt> <tt class="py-number">2000</tt> <tt class="py-comment"># Maximum number of iterations</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-name">epsilon</tt> <tt class="py-op">=</tt> <tt class="py-number">0.002</tt> <tt class="py-comment"># Error threshold</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">        <tt class="py-comment"># Stop if maxIter or epsilon is reached</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-name">condition</tt> <tt class="py-op">=</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">TERM_CRITERIA_COUNT</tt> <tt class="py-op">|</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">TERM_CRITERIA_EPS</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-name">criteria</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">condition</tt><tt class="py-op">,</tt> <tt class="py-name">maxIter</tt><tt class="py-op">,</tt> <tt class="py-name">epsilon</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-string">'term_crit'</tt><tt class="py-op">:</tt> <tt class="py-name">criteria</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">            <tt class="py-string">'train_method'</tt><tt class="py-op">:</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt class="py-name">ANN_MLP_TRAIN_PARAMS_BACKPROP</tt><tt class="py-op">,</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-string">'bp_dw_scale'</tt><tt class="py-op">:</tt> <tt class="py-number">0.1</tt><tt class="py-op">,</tt> <tt class="py-comment"># Stength of the weight gradient term</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">            <tt class="py-string">'bp_moment_scale'</tt><tt class="py-op">:</tt> <tt class="py-number">0.1</tt> <tt class="py-comment"># Strength of the momentum term</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">            <tt class="py-op">}</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method ocr.models.ANN.train()=ocr.models.ANN-class.html#train,Method ocr.models.KNearest.train()=ocr.models.KNearest-class.html#train"><a title="ocr.models.ANN.train
+ocr.models.KNearest.train" class="py-name" href="#" onclick="return doclink('link-10', 'train', 'link-10');">train</a></tt><tt class="py-op">(</tt><tt class="py-name">inputs</tt><tt class="py-op">=</tt><tt class="py-name">samples</tt><tt class="py-op">,</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">                  <tt class="py-name">outputs</tt><tt class="py-op">=</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">float32</tt><tt class="py-op">(</tt><tt class="py-name">newResponses</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">                  <tt class="py-name">sampleWeights</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">                  <tt class="py-name">params</tt><tt class="py-op">=</tt><tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"> </tt>
+<a name="ANN.predict"></a><div id="ANN.predict-def"><a name="L79"></a><tt class="py-lineno">79</tt> <a class="py-toggle" href="#" id="ANN.predict-toggle" onclick="return toggle('ANN.predict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.ANN-class.html#predict">predict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">samples</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ANN.predict-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ANN.predict-expanded"><a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">        <tt class="py-name">retval</tt><tt class="py-op">,</tt> <tt class="py-name">outputs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method ocr.models.ANN.predict()=ocr.models.ANN-class.html#predict,Method ocr.models.KNearest.predict()=ocr.models.KNearest-class.html#predict"><a title="ocr.models.ANN.predict
+ocr.models.KNearest.predict" class="py-name" href="#" onclick="return doclink('link-11', 'predict', 'link-11');">predict</a></tt><tt class="py-op">(</tt><tt class="py-name">samples</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">outputs</tt><tt class="py-op">.</tt><tt class="py-name">argmax</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line"> </tt>
+<a name="KNearest"></a><div id="KNearest-def"><a name="L83"></a><tt class="py-lineno">83</tt> <a class="py-toggle" href="#" id="KNearest-toggle" onclick="return toggle('KNearest');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="ocr.models.KNearest-class.html">KNearest</a><tt class="py-op">(</tt><tt class="py-base-class">AbstractStatModel</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KNearest-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="KNearest-expanded"><a name="KNearest.__init__"></a><div id="KNearest.__init__-def"><a name="L84"></a><tt class="py-lineno">84</tt> <a class="py-toggle" href="#" id="KNearest.__init__-toggle" onclick="return toggle('KNearest.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.KNearest-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">nClass</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KNearest.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="KNearest.__init__-expanded"><a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Class ocr.models.KNearest=ocr.models.KNearest-class.html"><a title="ocr.models.KNearest" class="py-name" href="#" onclick="return doclink('link-12', 'KNearest', 'link-12');">KNearest</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="ocr.analyzer.Analyzer.__init__
+ocr.common.Brush.__init__
+ocr.common.Sketcher.__init__
+ocr.dataset.Dataset.__init__
+ocr.dataset.DatasetItem.__init__
+ocr.generator.creator.DatasetCreator.__init__
+ocr.generator.reader.DatasetReader.__init__
+ocr.models.ANN.__init__
+ocr.models.AbstractStatModel.__init__
+ocr.models.KNearest.__init__
+ocr.test.test.TestOCR.__init__" class="py-name" href="#" onclick="return doclink('link-13', '__init__', 'link-6');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">nClass</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt> <tt class="py-op">=</tt> <tt class="py-name">cv2</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="ocr.models.KNearest" class="py-name" href="#" onclick="return doclink('link-14', 'KNearest', 'link-12');">KNearest</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line"> </tt>
+<a name="KNearest.train"></a><div id="KNearest.train-def"><a name="L88"></a><tt class="py-lineno">88</tt> <a class="py-toggle" href="#" id="KNearest.train-toggle" onclick="return toggle('KNearest.train');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.KNearest-class.html#train">train</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">samples</tt><tt class="py-op">,</tt> <tt class="py-param">responses</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KNearest.train-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="KNearest.train-expanded"><a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="ocr.models.ANN.train
+ocr.models.KNearest.train" class="py-name" href="#" onclick="return doclink('link-15', 'train', 'link-10');">train</a></tt><tt class="py-op">(</tt><tt class="py-name">samples</tt><tt class="py-op">,</tt> <tt class="py-name">responses</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line"> </tt>
+<a name="KNearest.predict"></a><div id="KNearest.predict-def"><a name="L91"></a><tt class="py-lineno">91</tt> <a class="py-toggle" href="#" id="KNearest.predict-toggle" onclick="return toggle('KNearest.predict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="ocr.models.KNearest-class.html#predict">predict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">samples</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KNearest.predict-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="KNearest.predict-expanded"><a name="L92"></a><tt class="py-lineno">92</tt>  <tt class="py-line">        <tt class="py-name">retval</tt><tt class="py-op">,</tt> <tt class="py-name">results</tt><tt class="py-op">,</tt> <tt class="py-name">neighborResponses</tt><tt class="py-op">,</tt> <tt class="py-name">dists</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_model</tt><tt class="py-op">.</tt><tt class="py-name">find_nearest</tt><tt class="py-op">(</tt><tt class="py-name">samples</tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno">93</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">results</tt><tt class="py-op">.</tt><tt class="py-name">ravel</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L94"></a><tt class="py-lineno">94</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="ocr-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/xsyann/ocr">OCR</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Sat Apr 19 18:35:23 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -24,6 +24,12 @@ def reader_keys():
     return """Dataset Reader Keys:
         UP    - Increase boxes size
         DOWN  - Decrease boxes
+        RIGHT - Increase image size
+        LEFT  - Decrease image size
+        w     - Move up
+        a     - Move left
+        s     - Move down
+        d     - Move right
         SPACE - Write Dataset"""
 
 def creator_keys():

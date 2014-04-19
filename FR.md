@@ -23,15 +23,17 @@
 
     class Dataset
     {
-        public samples          // Disponible après le pre-processing
-        public responses        // Disponible après le pre-processing
-        public sampleCount      // Disponible après le pre-processing
-       
+        public testSamples          // Disponible après le pre-processing
+        public trainSamples         // Disponible après le pre-processing
+        public trainResponses       // Disponible après le pre-processing
+        public testResponses        // Disponible après le pre-processing
+        public trainSampleCount     // Disponible après le pre-processing
+        public testSampleCount      // Disponible après le pre-processing
         public classCount       // Nombre de classifications
         public maxPerClass      // Nombre maximum de samples par classe
 
         Dataset(folders)
-        preprocess()
+        preprocess(trainRatio)
 
         getResponse(n)  // Retourne le label de la n-ième classification
     }

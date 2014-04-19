@@ -58,8 +58,8 @@ class ANN(AbstractStatModel):
         layers = np.int32([sampleSize, 16, self.classificationCount])
         self._model.create(layers, cv2.ANN_MLP_SIGMOID_SYM, 1, 1)
 
-        maxIter = 10000 # Maximum number of iterations
-        epsilon = 0.0001 # Error threshold
+        maxIter = 2000 # Maximum number of iterations
+        epsilon = 0.002 # Error threshold
         # Stop if maxIter or epsilon is reached
         condition = cv2.TERM_CRITERIA_COUNT | cv2.TERM_CRITERIA_EPS
         criteria = (condition, maxIter, epsilon)
